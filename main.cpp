@@ -191,3 +191,32 @@ void apskaiciuotiVidurki(
     cout << vardai[mokinioNumeris] << " pazymiu vidurkis: "
          << fixed << setprecision(2) << vidurkis << endl;
 }
+// istrinti ,okinio funkc 6
+void pasalintiMokini(
+    string vardai[],
+    int pazymiai[][MAX_PAZYMIU],
+    int pazymiuKiekiai[],
+    int& mokiniuKiekis)
+{
+    if (mokiniuKiekis == 0)
+    {
+        cout << "Mokiniu sarasas tuscias.\n";
+        return;
+    }
+
+    int mokinioNumeris = pasirinktiMokini(vardai, mokiniuKiekis);
+
+    for (int i = mokinioNumeris; i < mokiniuKiekis - 1; i++)
+    {
+        vardai[i] = vardai[i + 1];
+        pazymiuKiekiai[i] = pazymiuKiekiai[i + 1];
+
+        for (int j = 0; j < MAX_PAZYMIU; j++)
+        {
+            pazymiai[i][j] = pazymiai[i + 1][j];
+        }
+    }
+
+    mokiniuKiekis--;
+    cout << "Mokinys pasalintas.\n";
+}
