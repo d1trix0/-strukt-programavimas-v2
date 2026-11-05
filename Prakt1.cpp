@@ -31,3 +31,47 @@ int main() {
     double buyRate, sellRate;
 
     cout << fixed << setprecision(2);
+
+    while (valuet != 0) {
+        cout << "\n===== CURRENCY EXCHANGE =====" << endl;
+        cout << "Enter amount: ";
+        if (!(cin >> money) || money < 0) {
+            cout << "Invalid amount!" << endl;
+            return 1;
+        }
+
+        cout << "\nChoose currency to exchange:" << endl;
+        cout << "1 - EUR" << endl;
+        cout << "2 - USD" << endl;
+        cout << "3 - GBP" << endl;
+        cout << "4 - INR" << endl;
+        cout << "0 - Exit" << endl;
+        cout << "Your choice: ";
+        cin >> valuet;
+
+        if (valuet == 0) {
+            cout << "Program stopped." << endl;
+            break;
+        }
+
+        switch (valuet) {
+            case 1: //eur
+                buyRate = 1.0;
+                sellRate = 1.0;
+                break;
+            case 2: //usd
+                buyRate = USD_Pirkti;
+                sellRate = USD_Parduoti;
+                break;
+            case 3: //gbp
+                buyRate = GBP_Pirkti;
+                sellRate = GBP_Parduoti;
+                break;
+            case 4: //inr
+                buyRate = INR_Pirkti;
+                sellRate = INR_Parduoti;
+                break;
+            default:
+                cout << "Invalid currency!" << endl;
+                continue;
+        }
