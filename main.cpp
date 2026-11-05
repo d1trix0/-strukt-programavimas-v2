@@ -71,3 +71,61 @@ void ivestiMokini(
     mokiniuKiekis++;
     cout << "Mokinys pridetas.\n";
 }
+//perziureti Visus Mokinius funkc 2
+void perziuretiVisusMokinius(
+    string vardai[],
+    int pazymiai[][MAX_PAZYMIU],
+    int pazymiuKiekiai[],
+    int mokiniuKiekis)
+{
+    if (mokiniuKiekis == 0)
+    {
+        cout << "Mokiniu sarasas tuscias.\n";
+        return;
+    }
+
+    for (int i = 0; i < mokiniuKiekis; i++)
+    {
+        cout << i + 1 << ". " << vardai[i] << " | Pazymiai: ";
+
+        if (pazymiuKiekiai[i] == 0)
+        {
+            cout << "pazymiu nera";
+        }
+
+        for (int j = 0; j < pazymiuKiekiai[i]; j++)
+        {
+            cout << pazymiai[i][j] << " ";
+        }
+
+        cout << endl;
+    }
+}
+// konkretu mokinio pazimis funkc 3
+void perziuretiMokini(
+    string vardai[],
+    int pazymiai[][MAX_PAZYMIU],
+    int pazymiuKiekiai[],
+    int mokiniuKiekis)
+{
+    if (mokiniuKiekis == 0)
+    {
+        cout << "Mokiniu sarasas tuscias.\n";
+        return;
+    }
+
+    int mokinioNumeris = pasirinktiMokini(vardai, mokiniuKiekis);
+    cout << vardai[mokinioNumeris] << " pazymiai: ";
+
+    if (pazymiuKiekiai[mokinioNumeris] == 0)
+    {
+        cout << "pazymiu nera";
+    }
+
+    for (int i = 0; i < pazymiuKiekiai[mokinioNumeris]; i++)
+    {
+        cout << pazymiai[mokinioNumeris][i] << " ";
+    }
+
+    cout << endl;
+}
