@@ -111,17 +111,89 @@ int main() {
 			}
 			break;
 
-		case 2:
-			cout << "Pasirinkti kategorija" << endl;
+		case 2:{
+			string pasirinktaKategorija;
+
+			cout << "Pasirinkite kategorija:" << endl;
+			cout << "1. Dviraciai" << endl;
+			cout << "2. Dalys" << endl;
+			cout << "3. Aksesuarai" << endl;
+
+			int pasirinkimas2;
+			cin >> pasirinkimas2;
+
+			switch (pasirinkimas2) {
+			case 1:
+				pasirinktaKategorija = "Dviraciai";
+				break;
+
+			case 2:
+				pasirinktaKategorija = "Dalys";
+				break;
+
+			case 3:
+				pasirinktaKategorija = "Aksesuarai";
+				break;
+
+			default:
+				cout << "Neteisingas pasirinkimas!" << endl;
+				break;
+			}
+
+			for (int i = 0; i < n; i++) {
+				if (kategorija[i] == pasirinktaKategorija) {
+					cout << varda[i] << " | "
+						<< kaina[i] << " | "
+						<< kiekis[i] << endl;
+				}
+			}
+
 			break;
+		}
 
 		case 3:
-			cout << "Kategoriju sumos" << endl;
-			break;
+			cout << fixed << setprecision(2);
 
-		case 4:
-			cout << "Visa ataskaita" << endl;
+			cout << "Dviraciai: "
+				<< KategorijosSuma(kategorija, kaina, kiekis, n, "Dviraciai") << " EUR" << endl;
+
+			cout << "Dalys: "
+				<< KategorijosSuma(kategorija, kaina, kiekis, n, "Dalys") << " EUR" << endl;
+
+			cout << "Aksesuarai: "
+				<< KategorijosSuma(kategorija, kaina, kiekis, n, "Aksesuarai") << " EUR" << endl;
+
 			break;
+		case 4:{
+			double bendraSuma = 0;
+			double bendraNuolaida = 0;
+
+			cout << fixed << setprecision(2);
+
+			cout << "\n========== VISA ATASKAITA ==========" << endl;
+
+			for (int i = 0; i < n; i++) {
+				double suma = PrekesSuma(kaina[i], kiekis[i]);
+				double nuolaida = Nuolaida(kiekis[i], suma);
+
+				bendraSuma += suma;
+				bendraNuolaida += nuolaida;
+
+				cout << "\nKategorija: " << kategorija[i] << endl;
+				cout << "Preke: " << varda[i] << endl;
+				cout << "Kaina: " << kaina[i] << " EUR" << endl;
+				cout << "Kiekis: " << kiekis[i] << endl;
+				cout << "Suma: " << suma << " EUR" << endl;
+				cout << "Nuolaida: " << nuolaida << " EUR" << endl;
+			}
+
+			cout << "\n========== SUVESTINE ==========" << endl;
+			cout << "Bendra suma: " << bendraSuma << " EUR" << endl;
+			cout << "Bendra nuolaida: " << bendraNuolaida << " EUR" << endl;
+			cout << "Galutine suma: " << bendraSuma - bendraNuolaida << " EUR" << endl;
+
+			break;
+		}
 
 		case 5:
 			cout << "Programa baigta" << endl;
