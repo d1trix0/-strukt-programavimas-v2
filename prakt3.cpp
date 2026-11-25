@@ -77,29 +77,66 @@ int main() {
 		f.ignore(1000, '\n');
 
 	}
+	int pasirinkimas;
+
+	do {
+		cout << "========== MENIU ==========" << endl;
+		cout << "1. Visi produktai" << endl;
+		cout << "2. Pasirinkti kategorija" << endl;
+		cout << "3. Kategoriju sumos" << endl;
+		cout << "4. Visa ataskaita" << endl;
+		cout << "5. Baigti programa" << endl;
+		cout << "Pasirinkite: ";
+
+		cin >> pasirinkimas;
+
+		switch (pasirinkimas) {
+
+		case 1:
+			cout << "Prekiu informacija: " << endl;
+			cout << "________________________________________________________________________" << endl;
+
+			for (int i = 0; i < n; i++) {
+				double suma = PrekesSuma(kaina[i], kiekis[i]);
+				double nuolaida = Nuolaida(kiekis[i], suma);
+
+				cout << "Kategorija: " << i + 1 << ": " << kategorija[i] << endl;
+				cout << "Varda: " << varda[i] << endl;
+				cout << "Kaina: " << fixed << setprecision(2) << kaina[i] << endl;
+				cout << "Kiekis: " << kiekis[i] << endl;
+				cout << "Suma: " << suma << endl;
+				cout << "Nuolaida: " << nuolaida << endl;
+				cout << "Galutine suma: " << suma - nuolaida << endl;
+				cout << "-------------------------" << endl;
+			}
+			break;
+
+		case 2:
+			cout << "Pasirinkti kategorija" << endl;
+			break;
+
+		case 3:
+			cout << "Kategoriju sumos" << endl;
+			break;
+
+		case 4:
+			cout << "Visa ataskaita" << endl;
+			break;
+
+		case 5:
+			cout << "Programa baigta" << endl;
+			break;
+
+		default:
+			cout << "Neteisingas pasirinkimas!" << endl;
+		}
+
+	} while (pasirinkimas != 5);
 	cout << fixed << setprecision(2);
-	cout << "Dviraciai: " << KategorijosSuma(kategorija, kaina, kiekis, n, "Dviraciai") << endl;
-
-	cout << "Dalys: " << KategorijosSuma(kategorija, kaina, kiekis, n, "Dalys") << endl;
-
-	cout << "Aksesuarai: " << KategorijosSuma(kategorija, kaina, kiekis, n, "Aksesuarai") << endl;
-
-	cout << "-------------------------" << endl;
+	
 
 
-	for (int i = 0; i < n; i++) {
-		double suma = PrekesSuma(kaina[i], kiekis[i]);
-		double nuolaida = Nuolaida(kiekis[i], suma);
-		
-		cout << "Kategorija: " << i+1<< ": " << kategorija[i] << endl;
-		cout << "Varda: "<<  varda[i] << endl;
-		cout << "Kaina: "<< fixed << setprecision(2) << kaina[i] << endl;
-		cout << "Kiekis: "<< kiekis[i] << endl;
-		cout << "Suma: " << suma << endl;
-		cout << "Nuolaida: " << nuolaida << endl;
-		cout << "Galutine suma: " << suma - nuolaida << endl;
-		cout << "-------------------------" << endl;
-	}
+	
 	
 
 
