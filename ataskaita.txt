@@ -1,0 +1,250 @@
+========== VISA ATASKAITA ==========
+
+Kategorija: Dviraciai
+Preke: KROSS Level 4.0
+Kaina: 950.00 EUR
+Kiekis: 2
+Suma: 1900.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 1900.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Hexagon 8.0
+Kaina: 920.00 EUR
+Kiekis: 1
+Suma: 920.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 920.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Mini 4.0
+Kaina: 290.00 EUR
+Kiekis: 3
+Suma: 870.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 870.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Level 3.0
+Kaina: 710.00 EUR
+Kiekis: 2
+Suma: 1420.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 1420.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Level 5.0
+Kaina: 1130.00 EUR
+Kiekis: 1
+Suma: 1130.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 1130.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Level 6.0
+Kaina: 1180.00 EUR
+Kiekis: 2
+Suma: 2360.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 2360.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Level 7.0
+Kaina: 1650.00 EUR
+Kiekis: 1
+Suma: 1650.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 1650.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Level 10.0
+Kaina: 2120.00 EUR
+Kiekis: 1
+Suma: 2120.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 2120.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Esker 5.0
+Kaina: 1650.00 EUR
+Kiekis: 2
+Suma: 3300.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 3300.00 EUR
+
+Kategorija: Dviraciai
+Preke: KROSS Esker 6.0
+Kaina: 1930.00 EUR
+Kiekis: 1
+Suma: 1930.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 1930.00 EUR
+
+Kategorija: Dalys
+Preke: Shimano CN-HG53 grandine
+Kaina: 20.00 EUR
+Kiekis: 12
+Suma: 240.00 EUR
+Nuolaida: 24.00 EUR
+Moketi: 216.00 EUR
+
+Kategorija: Dalys
+Preke: MAXXIS Aspen padanga
+Kaina: 52.00 EUR
+Kiekis: 4
+Suma: 208.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 208.00 EUR
+
+Kategorija: Dalys
+Preke: MAXXIS Rekon Race padanga
+Kaina: 57.00 EUR
+Kiekis: 6
+Suma: 342.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 342.00 EUR
+
+Kategorija: Dalys
+Preke: Shimano CN-HG40 grandine
+Kaina: 9.00 EUR
+Kiekis: 15
+Suma: 135.00 EUR
+Nuolaida: 13.50 EUR
+Moketi: 121.50 EUR
+
+Kategorija: Dalys
+Preke: Shimano CN-M7100 grandine
+Kaina: 35.00 EUR
+Kiekis: 9
+Suma: 315.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 315.00 EUR
+
+Kategorija: Dalys
+Preke: Shimano CN-M8100 grandine
+Kaina: 45.00 EUR
+Kiekis: 10
+Suma: 450.00 EUR
+Nuolaida: 45.00 EUR
+Moketi: 405.00 EUR
+
+Kategorija: Dalys
+Preke: Shimano CN-M9100 grandine
+Kaina: 65.00 EUR
+Kiekis: 3
+Suma: 195.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 195.00 EUR
+
+Kategorija: Dalys
+Preke: MAXXIS Minion DHF 29x2.50 padanga
+Kaina: 60.00 EUR
+Kiekis: 8
+Suma: 480.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 480.00 EUR
+
+Kategorija: Dalys
+Preke: MAXXIS Minion DHF 29x2.60 padanga
+Kaina: 65.00 EUR
+Kiekis: 5
+Suma: 325.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 325.00 EUR
+
+Kategorija: Dalys
+Preke: MAXXIS Rambler TR 50-622 padanga
+Kaina: 55.00 EUR
+Kiekis: 11
+Suma: 605.00 EUR
+Nuolaida: 60.50 EUR
+Moketi: 544.50 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS Capitalo salmas
+Kaina: 45.00 EUR
+Kiekis: 10
+Suma: 450.00 EUR
+Nuolaida: 45.00 EUR
+Moketi: 405.00 EUR
+
+Kategorija: Aksesuarai
+Preke: KASK Sintesi salmas
+Kaina: 100.00 EUR
+Kiekis: 2
+Suma: 200.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 200.00 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS Aqua Stop 16 L krepsys
+Kaina: 25.00 EUR
+Kiekis: 5
+Suma: 125.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 125.00 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS Pure 500 ml Yellow gertuve
+Kaina: 5.00 EUR
+Kiekis: 20
+Suma: 100.00 EUR
+Nuolaida: 10.00 EUR
+Moketi: 90.00 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS Titan 140 PSI pompa
+Kaina: 43.00 EUR
+Kiekis: 4
+Suma: 172.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 172.00 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS Sport Ultralight 750 ml gertuve
+Kaina: 8.00 EUR
+Kiekis: 12
+Suma: 96.00 EUR
+Nuolaida: 9.60 EUR
+Moketi: 86.40 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS KZF 450 750 mm spyna
+Kaina: 65.00 EUR
+Kiekis: 6
+Suma: 390.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 390.00 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS Quark F2.0 USB priekinis zibintas
+Kaina: 12.00 EUR
+Kiekis: 9
+Suma: 108.00 EUR
+Nuolaida: 0.00 EUR
+Moketi: 108.00 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS HPG 2.0 mini pompa
+Kaina: 15.00 EUR
+Kiekis: 10
+Suma: 150.00 EUR
+Nuolaida: 15.00 EUR
+Moketi: 135.00 EUR
+
+Kategorija: Aksesuarai
+Preke: KROSS Safety F 70 lm USB-C priekinis zibintas
+Kaina: 16.00 EUR
+Kiekis: 14
+Suma: 224.00 EUR
+Nuolaida: 22.40 EUR
+Moketi: 201.60 EUR
+
+Bendra suma: 22910.00 EUR
+Bendra nuolaida: 245.00 EUR
+Galutine suma: 22665.00 EUR
+
+========== KATEGORIJU SUVESTINE ==========
+Dviraciai: 17600.00 EUR
+Dalys: 3152.00 EUR
+Aksesuarai: 1913.00 EUR

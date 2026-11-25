@@ -36,6 +36,103 @@ double KategorijosSuma(string Kategorija[], double kaina[], int kiekis[], int n 
 	}
 	return suma;
 }
+void Ataskaita(string kategorija[], string varda[], double kaina[], int kiekis[], int n)
+{
+	double bendraSuma = 0;
+	double bendraNuolaida = 0;
+
+	cout << fixed << setprecision(2);
+	cout << "\n========== VISA ATASKAITA ==========" << endl;
+
+	for (int i = 0; i < n; i++) {
+		double suma = PrekesSuma(kaina[i], kiekis[i]);
+		double nuolaida = Nuolaida(kiekis[i], suma);
+		double moketi = suma - nuolaida;
+
+		bendraSuma += suma;
+		bendraNuolaida += nuolaida;
+
+		cout << "\nKategorija: " << kategorija[i] << endl;
+		cout << "Preke: " << varda[i] << endl;
+		cout << "Kaina: " << kaina[i] << " EUR" << endl;
+		cout << "Kiekis: " << kiekis[i] << endl;
+		cout << "Suma: " << suma << " EUR" << endl;
+		cout << "Nuolaida: " << nuolaida << " EUR" << endl;
+		cout << "Moketi: " << moketi << " EUR" << endl;
+	}
+
+	cout << "\nBendra suma: " << bendraSuma << " EUR" << endl;
+	cout << "Bendra nuolaida: " << bendraNuolaida << " EUR" << endl;
+	cout << "Galutine suma: " << bendraSuma - bendraNuolaida << " EUR" << endl;
+
+	cout << "\n========== KATEGORIJU SUVESTINE ==========" << endl;
+
+	cout << "Dviraciai: "
+		<< KategorijosSuma(kategorija, kaina, kiekis, n, "Dviraciai") << " EUR" << endl;
+
+	cout << "Dalys: "
+		<< KategorijosSuma(kategorija, kaina, kiekis, n, "Dalys") << " EUR" << endl;
+
+	cout << "Aksesuarai: "
+		<< KategorijosSuma(kategorija, kaina, kiekis, n, "Aksesuarai") << " EUR" << endl;
+}
+
+void IssaugotiAtaskaita(string kategorija[], string varda[], double kaina[], int kiekis[], int n)
+{
+	ofstream out("ataskaita.txt");
+
+	if (!out.is_open()) {
+		cout << "Nepavyko atidaryti ataskaita.txt" << endl;
+		return;
+	}
+
+	double bendraSuma = 0;
+	double bendraNuolaida = 0;
+
+	out << fixed << setprecision(2);
+	out << "========== VISA ATASKAITA ==========" << endl;
+
+	for (int i = 0; i < n; i++) {
+		double suma = PrekesSuma(kaina[i], kiekis[i]);
+		double nuolaida = Nuolaida(kiekis[i], suma);
+		double moketi = suma - nuolaida;
+
+		bendraSuma += suma;
+		bendraNuolaida += nuolaida;
+
+		out << "\nKategorija: " << kategorija[i] << endl;
+		out << "Preke: " << varda[i] << endl;
+		out << "Kaina: " << kaina[i] << " EUR" << endl;
+		out << "Kiekis: " << kiekis[i] << endl;
+		out << "Suma: " << suma << " EUR" << endl;
+		out << "Nuolaida: " << nuolaida << " EUR" << endl;
+		out << "Moketi: " << moketi << " EUR" << endl;
+	}
+
+	out << "\nBendra suma: " << bendraSuma << " EUR" << endl;
+	out << "Bendra nuolaida: " << bendraNuolaida << " EUR" << endl;
+	out << "Galutine suma: " << bendraSuma - bendraNuolaida << " EUR" << endl;
+
+	out << "\n========== KATEGORIJU SUVESTINE ==========" << endl;
+
+	out << "Dviraciai: "
+		<< KategorijosSuma(kategorija, kaina, kiekis, n, "Dviraciai") << " EUR" << endl;
+
+	out << "Dalys: "
+		<< KategorijosSuma(kategorija, kaina, kiekis, n, "Dalys") << " EUR" << endl;
+
+	out << "Aksesuarai: "
+		<< KategorijosSuma(kategorija, kaina, kiekis, n, "Aksesuarai") << " EUR" << endl;
+
+	out.close();
+
+	if (out.fail()) {
+		cout << "Nepavyko irasyti ataskaitos!" << endl;
+	}
+	else {
+		cout << "Ataskaita sekmingai issaugota!" << endl;
+	}
+}
 
 
 int main() {
@@ -86,6 +183,7 @@ int main() {
 		cout << "3. Kategoriju sumos" << endl;
 		cout << "4. Visa ataskaita" << endl;
 		cout << "5. Baigti programa" << endl;
+		cout << "6. Issaugoti ataskaita" << endl;
 		cout << "Pasirinkite: ";
 
 		cin >> pasirinkimas;
@@ -164,39 +262,16 @@ int main() {
 				<< KategorijosSuma(kategorija, kaina, kiekis, n, "Aksesuarai") << " EUR" << endl;
 
 			break;
-		case 4:{
-			double bendraSuma = 0;
-			double bendraNuolaida = 0;
-
-			cout << fixed << setprecision(2);
-
-			cout << "\n========== VISA ATASKAITA ==========" << endl;
-
-			for (int i = 0; i < n; i++) {
-				double suma = PrekesSuma(kaina[i], kiekis[i]);
-				double nuolaida = Nuolaida(kiekis[i], suma);
-
-				bendraSuma += suma;
-				bendraNuolaida += nuolaida;
-
-				cout << "\nKategorija: " << kategorija[i] << endl;
-				cout << "Preke: " << varda[i] << endl;
-				cout << "Kaina: " << kaina[i] << " EUR" << endl;
-				cout << "Kiekis: " << kiekis[i] << endl;
-				cout << "Suma: " << suma << " EUR" << endl;
-				cout << "Nuolaida: " << nuolaida << " EUR" << endl;
-			}
-
-			cout << "\n========== SUVESTINE ==========" << endl;
-			cout << "Bendra suma: " << bendraSuma << " EUR" << endl;
-			cout << "Bendra nuolaida: " << bendraNuolaida << " EUR" << endl;
-			cout << "Galutine suma: " << bendraSuma - bendraNuolaida << " EUR" << endl;
-
+		case 4:
+			Ataskaita(kategorija, varda, kaina, kiekis, n);
 			break;
-		}
+		
 
 		case 5:
 			cout << "Programa baigta" << endl;
+			break;
+		case 6:
+			IssaugotiAtaskaita(kategorija, varda, kaina, kiekis, n);
 			break;
 
 		default:
