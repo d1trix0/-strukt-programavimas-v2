@@ -149,6 +149,56 @@ void VisoUzsakimoSuma(string kategorija[], double kaina[], int kiekis[], int n) 
 }
 
 
+bool Nuskaityti(string kategorija[], string varda[], double kaina[], int kiekis[], int& n)
+{
+	ifstream f("uzsakymas.txt");
+
+	if (!f.is_open()) {
+		cout << "Nepavyko atidaryti uzsakymas.txt" << endl;
+		return false;
+	}
+
+	if (!(f >> n)) {
+		cout << "Klaida nuskaitant prekiu kieki!" << endl;
+		return false;
+	}
+
+	f.ignore(1000, '\n');
+
+	if (n < 1 || n > 100) {
+		cout << "Klaida: netinkamas prekiu kiekis!" << endl;
+		return false;
+	}
+
+	for (int i = 0; i < n; i++) {
+		if (!getline(f, kategorija[i], ';') ||
+			!getline(f, varda[i], ';') ||
+			!(f >> kaina[i]) ||
+			f.get() != ';' ||
+			!(f >> kiekis[i])) {
+
+			cout << "Klaida nuskaitant preke!" << endl;
+			return false;
+		}
+
+		f.ignore(1000, '\n');
+
+		if (kategorija[i] != "Dviraciai" &&
+			kategorija[i] != "Dalys" &&
+			kategorija[i] != "Aksesuarai") {
+			cout << "Klaida: netinkama kategorija!" << endl;
+			return false;
+		}
+
+		if (kaina[i] <= 0 || kiekis[i] <= 0) {
+			cout << "Klaida: netinkama kaina arba kiekis!" << endl;
+			return false;
+		}
+	}
+
+	return true;
+}
+
 
 int main() {
 
@@ -162,47 +212,36 @@ int main() {
 
 
 
-	ifstream f("uzsakymas.txt");
-	if (!f.is_open()) {
-		cout << "Failure" << endl;
+	if (!Nuskaityti(kategorija, varda, kaina, kiekis, n)) {
 		return 1;
 	}
-	f >> n;
-	f.ignore(1000, '\n');
-	cout << "Priekiu kiekis :" << n << endl;
-	cout << "-------------------------" << endl;
-	if (n < 1 || n > 100) {
-		cout << "Klaida: netinkamas prekiu kiekis" << endl;
-		return 1;
-	}
+	
 
 
 
 
 
-	for (int i = 0; i < n; i++) {
-		getline(f, kategorija[i], ';');
-		getline(f, varda[i], ';');
-		f >> kaina[i];
-		f.ignore(1, ';');
-		f >> kiekis[i];
-		f.ignore(1000, '\n');
-
-	}
+	
 	int pasirinkimas;
 
 	do {
 		cout << "========== MENIU ==========" << endl;
 		cout << "1. Visi produktai" << endl;
 		cout << "2. Pasirinkti kategorija" << endl;
-		cout << "3. Kategoriju sumos" << endl;
-		cout << "4. Visa ataskaita" << endl;
-		cout << "5. Viso Uzsakimo Suma" << endl;
+		cout << "3. Viso uzsakymo suma" << endl;
+		cout << "4. Kategoriju sumos" << endl;
+		cout << "5. Visa ataskaita" << endl;
 		cout << "6. Issaugoti ataskaita" << endl;
 		cout << "7. Baigti programa" << endl;
 		cout << "Pasirinkite: ";
 
 		cin >> pasirinkimas;
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(1000, '\n');
+			cout << "Iveskite skaiciu nuo 1 iki 7!" << endl;
+			continue;
+		}
 
 		switch (pasirinkimas) {
 
@@ -214,13 +253,13 @@ int main() {
 				double suma = PrekesSuma(kaina[i], kiekis[i]);
 				double nuolaida = Nuolaida(kiekis[i], suma);
 
-				cout << "Kategorija: " << i + 1 << ": " << kategorija[i] << endl;
+				cout << "Kategorija: " << kategorija[i] << endl;
 				cout << "Varda: " << varda[i] << endl;
-				cout << "Kaina: " << fixed << setprecision(2) << kaina[i] << endl;
+				cout << "Kaina: " << fixed << setprecision(2) << kaina[i] << " EUR" << endl;
 				cout << "Kiekis: " << kiekis[i] << endl;
-				cout << "Suma: " << suma << endl;
-				cout << "Nuolaida: " << nuolaida << endl;
-				cout << "Galutine suma: " << suma - nuolaida << endl;
+				cout << "Suma: " << suma << " EUR" << endl;
+				cout << "Nuolaida: " << nuolaida << " EUR" << endl;
+				cout << "Galutine suma: " << suma - nuolaida << " EUR" << endl;
 				cout << "-------------------------" << endl;
 			}
 			break;
@@ -235,6 +274,12 @@ int main() {
 
 			int pasirinkimas2;
 			cin >> pasirinkimas2;
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(1000, '\n');
+				cout << "Iveskite skaiciu nuo 1 iki 3!" << endl;
+				break;
+			}
 
 			switch (pasirinkimas2) {
 			case 1:
@@ -253,19 +298,51 @@ int main() {
 				cout << "Neteisingas pasirinkimas!" << endl;
 				break;
 			}
+			if (pasirinkimas2 < 1 || pasirinkimas2 > 3) {
+				break;
+			}
+
+			bool rasta = false;
+			double kategorijosSuma = 0;
+
+			cout << fixed << setprecision(2);
 
 			for (int i = 0; i < n; i++) {
 				if (kategorija[i] == pasirinktaKategorija) {
-					cout << varda[i] << " | "
-						<< kaina[i] << " | "
-						<< kiekis[i] << endl;
+
+					rasta = true;
+
+					double suma = PrekesSuma(kaina[i], kiekis[i]);
+					double nuolaida = Nuolaida(kiekis[i], suma);
+					double moketi = suma - nuolaida;
+
+					kategorijosSuma += moketi;
+
+					cout << "\nPreke: " << varda[i] << endl;
+					cout << "Kaina: " << kaina[i] << " EUR" << endl;
+					cout << "Kiekis: " << kiekis[i] << endl;
+					cout << "Suma: " << suma << " EUR" << endl;
+					cout << "Nuolaida: " << nuolaida << " EUR" << endl;
+					cout << "Moketi: " << moketi << " EUR" << endl;
+					cout << "-------------------------" << endl;
 				}
+			}
+
+			if (rasta) {
+				cout << "Kategorijos suma: " << kategorijosSuma << " EUR" << endl;
+			}
+			else {
+				cout << "Sioje kategorijoje prekiu nera!" << endl;
 			}
 
 			break;
 		}
 
 		case 3:
+			VisoUzsakimoSuma(kategorija, kaina, kiekis, n);
+			break;
+
+		case 4:
 			cout << fixed << setprecision(2);
 
 			cout << "Dviraciai: "
@@ -276,15 +353,10 @@ int main() {
 
 			cout << "Aksesuarai: "
 				<< KategorijosSuma(kategorija, kaina, kiekis, n, "Aksesuarai") << " EUR" << endl;
-
 			break;
-		case 4:
-			Ataskaita(kategorija, varda, kaina, kiekis, n);
-			break;
-		
 
 		case 5:
-			VisoUzsakimoSuma( kategorija, kaina, kiekis, n );
+			Ataskaita(kategorija, varda, kaina, kiekis, n);
 			break;
 		case 6:
 			IssaugotiAtaskaita(kategorija, varda, kaina, kiekis, n);
@@ -308,7 +380,7 @@ int main() {
 
 
 	
-	f.close();
+
 
 	return 0;
 }
