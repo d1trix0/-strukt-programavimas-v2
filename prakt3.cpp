@@ -133,6 +133,21 @@ void IssaugotiAtaskaita(string kategorija[], string varda[], double kaina[], int
 		cout << "Ataskaita sekmingai issaugota!" << endl;
 	}
 }
+void VisoUzsakimoSuma(string kategorija[], double kaina[], int kiekis[], int n) {
+	double bendraSuma = 0;
+	double bendraNuolaida = 0;
+	for (int i = 0; i < n; i++) {
+		double suma = PrekesSuma(kaina[i], kiekis[i]);
+		double nuolaida = Nuolaida(kiekis[i], suma);
+		bendraSuma += suma;
+		bendraNuolaida += nuolaida;
+	}
+	cout << fixed << setprecision(2);
+	cout << "Bendra suma: " << bendraSuma << " EUR" << endl;
+	cout << "Bendra nuolaida: " << bendraNuolaida << " EUR" << endl;
+	cout << "Galutine suma: " << bendraSuma - bendraNuolaida << " EUR" << endl;
+}
+
 
 
 int main() {
@@ -182,8 +197,9 @@ int main() {
 		cout << "2. Pasirinkti kategorija" << endl;
 		cout << "3. Kategoriju sumos" << endl;
 		cout << "4. Visa ataskaita" << endl;
-		cout << "5. Baigti programa" << endl;
+		cout << "5. Viso Uzsakimo Suma" << endl;
 		cout << "6. Issaugoti ataskaita" << endl;
+		cout << "7. Baigti programa" << endl;
 		cout << "Pasirinkite: ";
 
 		cin >> pasirinkimas;
@@ -268,17 +284,21 @@ int main() {
 		
 
 		case 5:
-			cout << "Programa baigta" << endl;
+			VisoUzsakimoSuma( kategorija, kaina, kiekis, n );
 			break;
 		case 6:
 			IssaugotiAtaskaita(kategorija, varda, kaina, kiekis, n);
+			break;
+
+		case 7:
+			cout << "Programa baigta" << endl;
 			break;
 
 		default:
 			cout << "Neteisingas pasirinkimas!" << endl;
 		}
 
-	} while (pasirinkimas != 5);
+	} while (pasirinkimas != 7);
 	cout << fixed << setprecision(2);
 	
 
